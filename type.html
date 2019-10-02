@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>닥터후의 모든것</title>
+    <link rel="stylesheet" type="text/css" href="type.css" />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+</head>
+
+
+<body>
+    <header>
+        <a href="index.html"><img src="headerlogo.png" width="250" height="120" alt="Doctor Who" /></a> <!--해더에 있는 로고 사진을 누르면 메인 화면인 indet.html로 돌아온다.-->
+    </header>
+
+
+    <nav>
+        <ul>
+            <li><a href="intro.html">닥터후 소개</a></li>
+            <li><a href="character.html">등장인물</a></li>
+            <li><a href="highlight.html">하이라이트 영상</a></li>
+            <li><a href="type.html">취향별 에피소드 추천</a></li>
+            <li><a href="http://with.gsshop.com/search/main.gs?tq=%EB%8B%A5%ED%84%B0%ED%9B%84&utm_medium=paid_search&utm_source=google&utm_campaign=SA_Living_Bedroom_Furniture&mac_ad_key=16606475&gclid=Cj0KEQiAzNfDBRD2xKrO4pSnnOkBEiQAbzzeQR_NQRWpEylKuQguuC7zsLt_NlQ_y6pI5DbsYxzJ90AaAt4P8P8HAQ&fromWith=Y&media=Qh#1&so=7&vt=B&pg=30&po=0" target="_blank">공식 굿즈</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <fieldset>
+            <legend><h2 style="color:mediumvioletred">∥취향별 맞춤 에피소드∥</h2></legend>
+           <!--selectbox를 만들어 각 취향별로 맞춤 영상을 보여준다.-->
+             <select id="selectBox" name="selectBox">
+                <option value="1">우주물</option>
+                <option value="2">외계인물</option>
+                <option value="3">추리물</option>
+                <option value="4">역사물</option>
+                <option value="5">히어로물</option>
+            </select>
+            
+            <!--영상과 영상 제목을 나타내는 테이블 생성-->
+            <table>
+                <tr>
+                    <td><iframe id="video" width="640" height="360" src="https://www.youtube.com/embed/09nw1MKJGao" frameborder="0" allowfullscreen></iframe></td>
+                    <td><div id="text">취향별로 맞는 에피소드를 추천해드립니다.<p>수많은 닥터후의 에피소드들 중 자신의 기호에 맞는 에피소드를 볼 수 있습니다.</p></div></td>
+                </tr>
+            </table>
+            <!--버튼을 누르면 selectbox에서 선택요소에 따른 영상과 제목이 테이블에 나타낸다.-->
+            <input type="button" onclick="showEpisode()" value="에피소드 보기" />
+            <script>
+                //switch문을 사용하여 selectbox에서 선택된 value를 받아오고, value에 따라 table안 내용 수정
+                function showEpisode() {
+                    switch ( $("#selectBox option:selected").val() ) {
+                        case '1':
+                            document.getElementById("text").innerHTML = "닥터후 시즌9 4화 - 시간을 거슬러";
+                            document.getElementById("video").src = "https://www.youtube.com/embed/HBO_OrdXAF4";
+                            break;
+                        case '2':
+                            document.getElementById("text").innerHTML = "닥터후 시즌5 5화 - 눈뜨면 죽는다";
+                            document.getElementById("video").src = "https://www.youtube.com/embed/r2I5a8oU6NA";
+                            break;
+                        case '3':
+                            document.getElementById("text").innerHTML = "닥터후 시즌4 7화 - 유니콘과 말벌";
+                            document.getElementById("video").src = "https://www.youtube.com/embed/0uRDwcGEBmQ";
+                            break;
+                        case '4':
+                            document.getElementById("text").innerHTML = "닥터후 시즌5 10화 - 빈센트 반고흐";
+                            document.getElementById("video").src = "https://www.youtube.com/embed/ubTJI_UphPk";
+                            break;
+                        case '5':
+                            document.getElementById("text").innerHTML = "닥터후 2016크리스마스 스페셜 - 닥터 미스테리오의 귀환";
+                            document.getElementById("video").src = "https://www.youtube.com/embed/kFcSe0VrbXc";
+                            break;
+                    }
+                }
+            </script>
+        </fieldset>
+    </section>
+</body>
+</html>

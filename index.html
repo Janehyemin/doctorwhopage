@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>닥터후의 모든것</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css" />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+</head>
+
+
+<body>
+    <header>
+        <a href="index.html"><img src="headerlogo.png" width="250" height="120" alt="Doctor Who" /></a> <!--해더에 있는 로고 사진을 누르면 메인 화면인 indet.html로 돌아온다.-->
+    </header>
+
+
+    <nav>
+        <ul>
+            <li><a href="intro.html">닥터후 소개</a></li>
+            <li><a href="character.html">등장인물</a></li>
+            <li><a href="highlight.html">하이라이트 영상</a></li>
+            <li><a href="type.html">취향별 에피소드 추천</a></li>
+            <li><a href="http://with.gsshop.com/search/main.gs?tq=%EB%8B%A5%ED%84%B0%ED%9B%84&utm_medium=paid_search&utm_source=google&utm_campaign=SA_Living_Bedroom_Furniture&mac_ad_key=16606475&gclid=Cj0KEQiAzNfDBRD2xKrO4pSnnOkBEiQAbzzeQR_NQRWpEylKuQguuC7zsLt_NlQ_y6pI5DbsYxzJ90AaAt4P8P8HAQ&fromWith=Y&media=Qh#1&so=7&vt=B&pg=30&po=0" target="_blank">공식 굿즈</a></li>
+        </ul>
+    </nav>
+
+    <aside id="left">
+        <fieldset>
+            <legend>∥What is Doctor Who?∥</legend> <!--fieldset 내용이 닥터후 소개를 위함을 알리기 위한 legend-->
+            <div>
+                <img src="tardis2.png" width="170px" height="230px" alt="tadis" />
+            </div>
+            <div id="target">
+                <p>
+                    닥터 후(Doctor Who)는 BBC에서 제작, 방영되는 영국의 드라마 시리즈이다. 1963년 11월 23일에 첫 방송된 닥터 후는 기네스 북에 등재된 세계에서 가장 오랫동안 방영되고 있는 SF 드라마 시리즈이자, 시청률과 DVD 판매량, 책 판매량, 아이튠즈 접속 트래픽 등에서 역대로 가장 성공한 SF 드라마 시리즈이기도 하다.
+                    닥터라 알려진 신비한 외계인 타임로드가 옛 영국의 경찰 전화박스를 본딴 타임 머신, 타디스를 타고 여행하면서 겪는 일들을 그리고 있는 이 시리즈는 영국 서브 컬처 문화의 중요한 부분을 차지하고 있다.
+                    BBC 라디오 워크숍에서 만든 닥터 후 오프닝의 기계음과 타임 머신 타디스는 닥터 후와 영국의 컬트 텔레비전 시대를 상징하는 대표적 아이콘이 되었고, 뿐만 아니라 닥터 후 시리즈에서 가장 악랄한 악당으로 등장했던 달렉은 특히 인기가 높아 후에 《옥스퍼드 영어사전》에 등재되고[6], 달렉의 대사였던 'Exterminate! (말살하라!)' 는 영국에서 유행어가 되었다.
+                    2013년 11월 23일 닥터 후 시리즈는 방영 50주년을 맞았으며, 이날 50주년 기념 스페셜 에피소드인 〈The Day of the Doctor〉(닥터의 날)이 동시에 전 세계 방영되며 기네스북에 오르기도 했다. 현재는 12대 닥터 역에 피터 카팔디, 그리고 동행자 역에 제나 콜먼(클라라 오스왈드 역)이 열연하고 있다.
+                    대한민국에서 닥터 후는 1977년 KBS에서 《후박사의 모험》으로 처음 소개되었으며, 새 닥터 후 시리즈는 2005년부터 KBS 2TV를 거쳐, 현재는 KBS 1TV에서 해외걸작드라마로 방영되고 있다.
+                </p>
+                <!--버튼을 누르면 닥터후 소개 페이지로 넘어간다-->
+                <button id='goIntro'>닥터후 소개 자세히 알기</button>    
+                <script>
+                    //jQuery로 페이지 intro.html로 이동.
+                    $(function () {
+                        $('#goIntro').click(function(){
+                            location.href = 'intro.html';
+                        });
+                    });
+                </script>
+            </div>
+        </fieldset>
+    </aside>
+
+    <section>
+        <iframe width="670" height="400" src="https://www.youtube.com/embed/fugvUt0Pgss" frameborder="0" allowfullscreen></iframe> <!--메인으로 닥터후 마크가 나오는 영상-->
+        <article>
+            영국드라마 닥터후 소개 사이트입니다.
+           <p>닥터후의 모든것을 즐겨보세요!</p>
+        </article>
+    </section>
+
+    <aside id="right">
+        
+            <div id='remaining'></div>
+            <div id="time">
+            <script>
+                //닥터후 다음 에피소드까지 남은 시간을 계산해주는 스크립트이다. 
+                function datesUntilNewYear() {
+                    var now = new Date();
+                    var newYear = new Date('April 1, ' + (now.getFullYear() + 3));
+                    var diff = newYear - now;
+                    var milliseconds = Math.floor(diff % 1000);
+                    diff = diff / 1000;
+                    var seconds = Math.floor(diff % 60);
+                    diff = diff / 60;
+                    var minutes = Math.floor(diff % 60);
+                    diff = diff / 60;
+                    var hours = Math.floor(diff % 24);
+                    diff = diff / 24;
+                    var days = Math.floor(diff);
+
+                    var outStr = 'DOCTOR WHO<br/> SEASON10<br/> FIRST EPISODE<br/> ' + days + ' DAYS<br/> ' + hours + ' : ' + minutes;
+                    outStr += ' : ' + seconds + '  ' + ' <br/>TO GO!';
+
+                    document.getElementById('remaining').innerHTML = outStr;
+                    // 1초가 지나면 다시 함수를 호출한다.
+                    setTimeout("datesUntilNewYear()", 1000);
+                }
+
+                // 타이머를 시작한다.
+                datesUntilNewYear();
+            </script>
+                </div>
+        </aside>
+
+
+    <footer>
+            <fieldset id="firstone">
+                <legend>∥영상 맛보기∥</legend>
+                <iframe width="270" height="200" src="https://www.youtube.com/embed/o3x4YF3EisE" frameborder="0" allowfullscreen></iframe>
+                <iframe width="270" height="200" src="https://www.youtube.com/embed/ubTJI_UphPk" frameborder="0" allowfullscreen></iframe>
+                <iframe width="270" height="200" src="https://www.youtube.com/embed/a8HoZlhenZ4" frameborder="0" allowfullscreen></iframe>
+                <br /><button id='goHighlight'>닥터후 영상 더보기</button> <!--버튼을 누르면 닥터후 영상 페이지로 넘어간다-->
+                <script>
+                    //jQuery로 페이지 highlight.html로 이동.
+                    $(function () {
+                        $('#goHighlight').click(function(){
+                            location.href = 'highlight.html';
+                        });
+                    });
+                </script>
+            </fieldset>
+        <br /><br />
+        <br /><br />
+        <div>edited by janejung. kyunghee univ. int'l studies. 2015101378</div>
+    </footer>
+    
+</body>
+</html>
